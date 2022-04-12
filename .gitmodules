@@ -1,0 +1,9 @@
+[submodule "models/DGM_pytorch"]
+	path = models/DGM_pytorch
+	url = https://github.com/samconsidine/DGM_pytorch.git
+[submodule "models/SLAPS-GNN"]
+	path = models/SLAPS-GNN
+	url = https://github.com/samconsidine/SLAPS-GNN.git
+[submodule "models/dgcnn"]
+	path = models/dgcnn
+	url = https://github.com/samconsidine/dgcnn.git
