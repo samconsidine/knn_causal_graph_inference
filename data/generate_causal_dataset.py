@@ -32,6 +32,17 @@ def scm_to_dataset(scm: StructuralCausalModel, n_samp: int, batch_size: int) -> 
     return DataLoader(data, batch_size=batch_size)
 
 
+def generate_test_dataset():
+    scm = StructuralCausalModel({
+        "x1": lambda     n_samples: np.random.binomial(n=1,p=0.7,size=n_samples),
+        "x2": lambda x1, n_samples: np.random.normal(loc=x1, scale=0.1),
+        "x3": lambda x2, n_samples: x2 ** 2,
+        "x4": lambda x1, x2, n_samples: x1 + x2
+    })
+
+    return scm_to_dataset(scm, 100, 3)
+
+
 if __name__ == "__main__":
     scm = StructuralCausalModel({
         "x1": lambda     n_samples: np.random.binomial(n=1,p=0.7,size=n_samples),
